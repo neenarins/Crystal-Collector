@@ -1,4 +1,49 @@
+.jumbotron {
+	width: 600px;
+	height: 200px;
+	text-align: center;
+	border-radius: 10px;
+	margin: auto;
+}
+
+#instructions {
+	width: 600px;
+	height: 250px;
+	text-align: center;
+	margin: auto;
+
+}
+
+.container{
+	margin-left: 8cm;
+}
+
+#given{
+	width: 200px;
+	height: 100px;
+	text-align: center;
+	display: inline-block;
+}
+
+#points{
+	width: 200px;
+	height: 100px;
+	text-align: center;
+	display: inline-block;
+}
+
+#stats{
+	width: 200px;
+	height: 100px;
+	text-align: center;
+	display: inline-block;
+}
+
 .gems {
 	width: 150px;
 	height: 150px;
+}
+
+#buttonReset{
+	margin-left: 15cm;
 }

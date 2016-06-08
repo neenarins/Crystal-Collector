@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+$("#buttonReset").hide();
+
 //Global Variables, to be referred to throughout any function.
 var blueNum = 0;
 var greenNum = 0;
@@ -54,29 +56,37 @@ var losses = 0;
 		});
 
 	//This function will run when it is time to reset the game, which will set all of the following values back to 0.
-	function resetGame(){
-		scoreToMeet = 0;
-		scoreNow = 0;
-		blueNum = 0;
-		greenNum = 0;
-		redNum = 0;
-		yellowNum = 0;
-		givenScore();
-
+	function playAgain(){
+		//When the button is clicked, the following will occur. It will set the following values to 0, call the given score function, and hide the div with the gems, for a cleaner look.
+		$("#buttonReset").click(function(){
+			scoreToMeet = 0;
+			scoreNow = 0;
+			blueNum = 0;
+			greenNum = 0;
+			redNum = 0;
+			yellowNum = 0;
+			givenScore();
+			$("#buttonReset").hide();
+			$("#gemRow").show();
+		});
 	};
 
-	//This function will check whether the current score equals the given score to match.  If it does, then the user wins will add by one.  If it does not, then the user losses will add by one.  It will then be posted to the HTML page, through the element with that given Id.
+	//This function will check whether the current score equals the given score to match.  If it does, then the user wins will add by one.  If it does not, then the user losses will add by one.  It will then be posted to the HTML page, through the element with that given Id.  It will also hide and show certain content, for a cleaner look.
 	function scoreKeeper(){
 		if (scoreNow > matchScore){
 			losses++;
 			$("#losses").html('Losses: ' + losses);
-			resetGame();
+			$("#buttonReset").show();
+			$("#gemRow").hide();
+			playAgain();
 		}
 
 		if (scoreNow == matchScore){
 			wins++;
 			$("#wins").html('Wins: ' + wins);
-			resetGame();
+			$("#buttonReset").show();
+			$("#gemRow").hide();
+			playAgain();
 		};
 	};
 
